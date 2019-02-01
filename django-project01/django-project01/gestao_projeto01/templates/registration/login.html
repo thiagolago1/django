@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+
+{% block title %} Página de Login {% endblock %}
+
+{% block main %}
+
+    <div class="card-body">
+    <h2 class="card-title"><b>Login</b><h2>
+        <form method="post">
+        <div class="form-group">
+            {% csrf_token %}
+            {{ form|bootstrap }}
+            <button type="submit" class="btn btn-primary">Login</button>
+        </div>
+        </form>
+    </div>
+{% endblock %}
+
+{% block footer %}
+    <footer class="footer">
+        <div class="container">
+            <span class="text-muted">Projeto Django 01 - Desenvolvido para o aprendizado de Django - 2018 - Django Rules!</span>
+        </div>
+    </footer>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+
+{% block title %} Página de Administração {% endblock %}
+
+{% block main %}
+
+<div class="row">
+    <div class="col">
+
+    </div>
+    <div class="col-6">
+        <h3>Lista de Clientes</h3>
+        <ul class="list-group">
+            {% for person in persons %}
+
+            <li class="list-group-item">
+
+                <a href="{% url 'person_update' person.id %}">{{ person.first_name }}</a>
+                <a href="{% url 'person_delete' person.id %}" class="trash-item">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+            </li>
+
+            {% endfor %}
+        </ul>
+        </br>
+        <a href="{% url 'person_new' %}" class="btn btn-primary">Cadastrar Novo Cliente</a>
+    </div>
+    <div class="col">
+        <div class="col">
+            {% if user.is_authenticated %}
+            <p>Bem-vindo, {{user.username}}! &nbsp;
+                <a href="{% url 'logout' %}">
+                <span class="badge badge-dark">Sair</span></a></p>
+
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block footer %}
+<footer class="footer">
+    <div class="container">
+        <span class="text-muted">
+            <span class="text-muted">Projeto Django 01 - Desenvolvido para o aprendizado de Django - 2018 - Django Rules!</span>
+        </span>
+    </div>
+</footer>
+{% endblock %}

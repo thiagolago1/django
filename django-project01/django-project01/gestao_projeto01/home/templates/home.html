@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %} Página Inicial DP01{% endblock %}
+
+{% block main %}
+
+<div class="row">
+    <div class="col">
+
+    </div>
+    <div class="col-6">
+        <h1 class="home">Bem-vindo ao Projeto Django 01!</h1>
+    </div>
+    <div class="col-sm">
+        {% if user.is_authenticated %}
+        <p>Bem-vindo, {{ user.username }}</p>
+        <a href="{% url 'logout' %}">Sair</a>
+        {% else %}
+        <a href="{% url 'login'  %}" class="btn btn-info">Faça Login!</a>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}
+
+{% block footer %}
+    <footer class="footer">
+        <div class="container">
+            <span class="text-muted">Projeto Django 01 - Desenvolvido para o aprendizado de Django - 2018 - Django Rules!</span>
+        </div>
+    </footer>
+{% endblock %}

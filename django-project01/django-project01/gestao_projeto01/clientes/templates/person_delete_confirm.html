@@ -1,0 +1,14 @@
+
+{% extends 'base.html' %}
+
+{% block title %} Página de Delete {% endblock %}
+
+{% block main %}
+<h1> Deseja deletar cadastro? </h1>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit"class="btn btn-warning">DELETAR</button>
+
+</form>
+{% endblock %}
